@@ -462,6 +462,13 @@ __device__ bool SDL::matchRadiiBBBEE12378(const float& innerRadius, const float&
     float bridgeInvRadiusErrorBound = 0.507;
     float outerInvRadiusErrorBound = 7.655;
 
+    if(innerRadius > 2.0/(2 * k2Rinv1GeVf))
+    {
+        innerInvRadiusErrorBound = 0.94396;
+        outerInvRadiusErrorBound = 32.2737;
+        bridgeInvRadiusErrorBound = 8.7245;
+    }
+
     innerRadiusMin = innerRadius/(1 + innerInvRadiusErrorBound);
     innerRadiusMax = innerInvRadiusErrorBound < 1 ? innerRadius/(1 - innerInvRadiusErrorBound) : 123456789.f;
 
@@ -479,6 +486,13 @@ __device__ bool SDL::matchRadiiBBBEE23478(const float& innerRadius, const float&
     float innerInvRadiusErrorBound = 0.2097;
     float bridgeInvRadiusErrorBound = 0.8557;
     float outerInvRadiusErrorBound = 24.0450;
+
+    if(innerRadius > 2.0/(2 * k2Rinv1GeVf))
+    {
+        innerInvRadiusErrorBound = 1.4921;
+        bridgeInvRadiusErrorBound = 19.7609;
+        outerInvRadiusErrorBound = 29.2577;
+    }
 
     innerRadiusMin = innerRadius/(1 + innerInvRadiusErrorBound);
     innerRadiusMax = innerInvRadiusErrorBound < 1 ? innerRadius/(1 - innerInvRadiusErrorBound) : 123456789.f;
@@ -498,6 +512,13 @@ __device__ bool SDL::matchRadiiBBBEE34578(const float& innerRadius, const float&
     float innerInvRadiusErrorBound = 0.066;
     float bridgeInvRadiusErrorBound = 0.617;
     float outerInvRadiusErrorBound = 2.688;
+
+    if(innerRadius > 2.0/(2 * k2Rinv1GeVf))
+    {
+        innerInvRadiusErrorBound = 0.1371;
+        bridgeInvRadiusErrorBound = 0.5414;
+        outerInvRadiusErrorBound = 32.2737;
+    }
 
     innerRadiusMin = innerRadius/(1 + innerInvRadiusErrorBound);
     innerRadiusMax = innerInvRadiusErrorBound < 1 ? innerRadius/(1 - innerInvRadiusErrorBound) : 123456789.f;
